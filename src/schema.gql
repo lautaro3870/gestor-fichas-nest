@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Proyecto {
+  id: Int!
+  titulo: String
+  activo: Boolean
+}
+
+type Area {
+  id: Int!
+  area: String
+  activo: Boolean
+}
+
+type Query {
+  sayHello: [Proyecto!]!
+  areas: [Area!]!
+  area(id: Int!): Area!
+  deleteArea(id: Int!): Area!
+}
+
+type Mutation {
+  createArea(createArea: CreateArea!): Area!
+  updateArea(updateArea: UpdateArea!): Area!
+}
+
+input CreateArea {
+  area: String
+}
+
+input UpdateArea {
+  area: String
+  id: Int!
+}
