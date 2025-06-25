@@ -5,11 +5,13 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { join } from 'path';
 import { ProjectsModule } from './projects/projects.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Proyecto } from './projects/entities/project.entity';
+import { Project } from './projects/entities/project.entity';
 import { AreasModule } from './areas/areas.module';
 import { Area } from './areas/entities/area.entity';
 import { PersonalModule } from './personal/personal.module';
 import { Personal } from './personal/entities/personal.entity';
+import { Areasxproyecto } from './areas/entities/areasxproyecto.entity';
+import { Equipoxproyecto } from './personal/entities/equipoxproyecto.enity';
 
 @Module({
   imports: [
@@ -26,7 +28,7 @@ import { Personal } from './personal/entities/personal.entity';
       username: 'postgres',
       password: 'autos321',
       database: 'local_fundacion',
-      entities: [Proyecto, Area, Personal],
+      entities: [Project, Area, Personal, Areasxproyecto, Equipoxproyecto],
       synchronize: false, // DEJAR SIEMPRE EN FALSE
       autoLoadEntities: false
     }),

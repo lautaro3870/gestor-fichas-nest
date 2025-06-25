@@ -2,16 +2,15 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Proyecto {
-  id: Int!
-  titulo: String
-  activo: Boolean
-}
-
 type Area {
   id: Int!
   area: String
   activo: Boolean
+}
+
+type Areasxproyecto {
+  proyecto: Project!
+  area: Area!
 }
 
 type Personal {
@@ -22,8 +21,54 @@ type Personal {
   perfil: String
 }
 
+type Equipoxproyecto {
+  idProyecto: Int
+  idPersonal: Int
+  texto: Int
+  coordinador: Int
+  consultorAsociado: Int
+  investigador: Int
+  subCoordinador: Int
+  proyecto: Project!
+  personal: Personal!
+}
+
+type Project {
+  id: Int!
+  titulo: String
+  paisRegion: String
+  contratante: String
+  direccion: String
+  montoContrato: String
+  numeroContrato: String
+  mesInicio: Int
+  anioInicio: Int
+  mesFinalizacion: Int
+  anioFinalizacion: Int
+  consultoresAsociados: String
+  descripcion: String
+  resultados: String
+  fichaLista: String
+  enCurso: Boolean
+  departamento: String
+  moneda: String
+  certConformidad: Boolean
+  certificadoPor: Int
+  activo: Boolean
+  link: String
+  convenio: Boolean
+  pdf: String
+  issn: String
+  isbn: String
+  cita: String
+  revista: String
+  areasxProyecto: [Areasxproyecto!]
+  equipoxProyecto: [Equipoxproyecto!]
+}
+
 type Query {
-  sayHello: [Proyecto!]!
+  findAllProjects: [Project!]!
+  findOneProject(id: Int!): Project!
   areas: [Area!]!
   area(id: Int!): Area!
   deleteArea(id: Int!): Area!
