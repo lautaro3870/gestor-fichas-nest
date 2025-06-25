@@ -8,6 +8,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Proyecto } from './projects/entities/project.entity';
 import { AreasModule } from './areas/areas.module';
 import { Area } from './areas/entities/area.entity';
+import { PersonalModule } from './personal/personal.module';
+import { Personal } from './personal/entities/personal.entity';
 
 @Module({
   imports: [
@@ -24,12 +26,13 @@ import { Area } from './areas/entities/area.entity';
       username: 'postgres',
       password: 'autos321',
       database: 'local_fundacion',
-      entities: [Proyecto, Area],
+      entities: [Proyecto, Area, Personal],
       synchronize: false, // DEJAR SIEMPRE EN FALSE
       autoLoadEntities: false
     }),
     ProjectsModule,
     AreasModule,
+    PersonalModule,
   ],
   controllers: [],
   providers: [],

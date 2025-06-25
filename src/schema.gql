@@ -14,16 +14,29 @@ type Area {
   activo: Boolean
 }
 
+type Personal {
+  id: Int!
+  nombre: String
+  activo: Boolean
+  foto: String
+  perfil: String
+}
+
 type Query {
   sayHello: [Proyecto!]!
   areas: [Area!]!
   area(id: Int!): Area!
   deleteArea(id: Int!): Area!
+  findAllPersonal: [Personal!]!
+  findOnePersonal(id: Int!): Personal!
+  deletePersonal(id: Int!): Personal!
 }
 
 type Mutation {
   createArea(createArea: CreateArea!): Area!
   updateArea(updateArea: UpdateArea!): Area!
+  updatePersonal(updatePersonal: UpdatePersonal!): Personal!
+  createPersonal(createPersonal: CreatePersonal!): Personal!
 }
 
 input CreateArea {
@@ -33,4 +46,17 @@ input CreateArea {
 input UpdateArea {
   area: String
   id: Int!
+}
+
+input UpdatePersonal {
+  nombre: String
+  foto: String
+  perfil: String
+  id: Int!
+}
+
+input CreatePersonal {
+  nombre: String!
+  foto: String
+  perfil: String
 }
