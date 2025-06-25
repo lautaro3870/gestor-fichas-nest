@@ -28,6 +28,7 @@ export class ProjectsService {
         id: id,
         activo: true,
       },
+      relations: ['areasxProyecto', 'areasxProyecto.area', 'equipoxProyecto', 'equipoxProyecto.personal'],
     });
 
     if (!project) {
