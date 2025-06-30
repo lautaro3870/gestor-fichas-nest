@@ -24,13 +24,13 @@ type Personal {
 type Equipoxproyecto {
   idProyecto: Int
   idPersonal: Int
-  texto: Int
-  coordinador: Int
-  consultorAsociado: Int
-  investigador: Int
-  subCoordinador: Int
-  proyecto: Project!
-  personal: Personal!
+  texto: String
+  coordinador: Boolean
+  consultorAsociado: Boolean
+  investigador: Boolean
+  subCoordinador: Boolean
+  proyecto: Project
+  personal: Personal
 }
 
 type Project {
@@ -48,7 +48,7 @@ type Project {
   consultoresAsociados: String
   descripcion: String
   resultados: String
-  fichaLista: String
+  fichaLista: Boolean
   enCurso: Boolean
   departamento: String
   moneda: String
@@ -78,10 +78,54 @@ type Query {
 }
 
 type Mutation {
+  createProject(createProject: CreateProjectInput!): Project!
   createArea(createArea: CreateArea!): Area!
   updateArea(updateArea: UpdateArea!): Area!
   updatePersonal(updatePersonal: UpdatePersonal!): Personal!
   createPersonal(createPersonal: CreatePersonal!): Personal!
+}
+
+input CreateProjectInput {
+  titulo: String
+  paisRegion: String
+  contratante: String
+  direccion: String
+  montoContrato: String
+  numeroContrato: String
+  mesInicio: Int
+  anioInicio: Int
+  mesFinalizacion: Int
+  anioFinalizacion: Int
+  consultoresAsociados: String
+  descripcion: String
+  resultados: String
+  fichaLista: Boolean
+  enCurso: Boolean
+  departamento: String
+  moneda: String
+  certconformidad: Boolean
+  certificadoPor: Int
+  link: String
+  convenio: Boolean
+  pdf: String
+  issn: String
+  isbn: String
+  cita: String
+  revista: String
+  equipo: [CreateEquipoInput!]
+  areas: [CreateAreaInput!]
+}
+
+input CreateEquipoInput {
+  idPersonal: Int!
+  coordinador: Boolean
+  ConsultorAsociado: Boolean
+  Investigador: Boolean
+  SubCoordinador: Boolean
+}
+
+input CreateAreaInput {
+  idArea: Int!
 }
 
 input CreateArea {

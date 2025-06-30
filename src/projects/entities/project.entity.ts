@@ -38,7 +38,7 @@ export class Project {
   @Field(() => Int, { nullable: true })
   mesInicio: number;
 
-  @Column({ name: 'mes_inicio' })
+  @Column({ name: 'anio_inicio' })
   @Field(() => Int, { nullable: true })
   anioInicio: number;
 
@@ -46,7 +46,7 @@ export class Project {
   @Field(() => Int, { nullable: true })
   mesFinalizacion: number;
 
-  @Column({ name: 'anio_inicio' })
+  @Column({ name: 'anio_finalizacion' })
   @Field(() => Int, { nullable: true })
   anioFinalizacion: number;
 
@@ -63,8 +63,8 @@ export class Project {
   resultados: string;
 
   @Column({ name: 'ficha_lista' })
-  @Field(() => String, { nullable: true })
-  fichaLista: string;
+  @Field(() => Boolean, { nullable: true })
+  fichaLista: boolean;
 
   @Column({ name: 'en_curso' })
   @Field(() => Boolean, { nullable: true })

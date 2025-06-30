@@ -15,32 +15,32 @@ export class Equipoxproyecto {
   idPersonal: number;
 
   @Column()
-  @Field(() => Int, { nullable: true })
-  texto: number;
+  @Field(() => String, { nullable: true })
+  texto?: string;
 
   @Column()
-  @Field(() => Int, { nullable: true })
-  coordinador: string;
+  @Field(() => Boolean, { nullable: true })
+  coordinador: boolean;
 
   @Column({ name: 'ConsultorAsociado' })
-  @Field(() => Int, { nullable: true })
-  consultorAsociado: string;
+  @Field(() => Boolean, { nullable: true })
+  consultorAsociado: boolean;
 
   @Column({ name: 'Investigador' })
-  @Field(() => Int, { nullable: true })
-  investigador: string;
+  @Field(() => Boolean, { nullable: true })
+  investigador: boolean;
 
   @Column({ name: 'SubCoordinador' })
-  @Field(() => Int, { nullable: true })
-  subCoordinador: string;
+  @Field(() => Boolean, { nullable: true })
+  subCoordinador: boolean;
 
   @ManyToOne(() => Project, (project) => project.equipoxProyecto)
   @JoinColumn({ name: 'id_proyecto' })
-  @Field(() => Project)
+  @Field(() => Project, { nullable: true })
   proyecto: Project;
 
   @ManyToOne(() => Personal, (personal) => personal.equipoxProyecto)
   @JoinColumn({ name: 'id_personal' })
-  @Field(() => Personal)
+  @Field(() => Personal, { nullable: true })
   personal: Personal;
 }
